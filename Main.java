@@ -66,9 +66,8 @@ public class Main extends Application {
     }
 
     public boolean checkValid(Dot dot) {
-        if ((dot.getyCoord()) <= (-30/13) * dot.getxCoord() + 1200) {
-
-            if ((dot.getyCoord()) <= (30/13) * dot.getxCoord() + 1200) {
+        if ((dot.getyCoord()) <= (-(400/231) * dot.getxCoord()) + WIDTH) {
+            if ((dot.getyCoord()) <= ((400/231) * dot.getxCoord()) - WIDTH) {
                 isValid = true;
             }
         }
@@ -98,8 +97,11 @@ public class Main extends Application {
         Dot p1 = dotList.get(p1Index);
         Dot p2 = dotList.get(3);
 
-        int newXCoord = (p1.getxCoord() + p2.getxCoord())/2;
-        int newYCoord = (p1.getyCoord() + p2.getyCoord())/2;
+        double ratio = 0.5;
+
+        int newXCoord = (int) ((p1.getxCoord() + p2.getxCoord()) * ratio);
+        int newYCoord = (int) ((p1.getyCoord() + p2.getyCoord()) * ratio);
+
 
         p2.setxCoord(newXCoord);
         p2.setyCoord(newYCoord);
